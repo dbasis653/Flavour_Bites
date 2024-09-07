@@ -7,7 +7,6 @@ class GridItems extends StatelessWidget {
   const GridItems(
       {super.key, required this.category, required this.filteredList});
   final CategoryModel category;
-
   final List<MealModel> filteredList;
 
   void _selectCategory(BuildContext context, CategoryModel category) {

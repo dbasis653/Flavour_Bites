@@ -16,9 +16,9 @@ class MealDetailsScreen extends ConsumerWidget {
     final favMeals = ref.watch(favoriteProvider);
     bool isFav = favMeals.contains(meal);
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.onPrimary,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.onSecondary,
+        // backgroundColor: Theme.of(context).colorScheme.onSecondary,
         title: Text(
           meal.title,
         ),
@@ -62,47 +62,52 @@ class MealDetailsScreen extends ConsumerWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    Text(
-                      'Ingredients:',
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
+              Card(
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Ingredients:',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onPrimaryContainer,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      SizedBox(
+                        height: 150,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              for (final ingredient in meal.ingredients)
+                                // for (int i = 0; i < meal.ingredients.length; i++)
+                                Text(
+                                  ingredient,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge!
+                                      .copyWith(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      ),
+                                ),
+                            ],
                           ),
-                    ),
-                    SizedBox(
-                      height: 150,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            for (final ingredient in meal.ingredients)
-                              // for (int i = 0; i < meal.ingredients.length; i++)
-                              Text(
-                                ingredient,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                              ),
-                          ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
                 'Steps:',
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
@@ -111,7 +116,7 @@ class MealDetailsScreen extends ConsumerWidget {
                 SizedBox(
                   width: double.infinity,
                   child: Card(
-                    color: Theme.of(context).colorScheme.secondaryContainer,
+                    color: Theme.of(context).colorScheme.surfaceContainer,
                     elevation: 10,
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),

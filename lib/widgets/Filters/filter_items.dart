@@ -3,45 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:meals2/providers/filter_provider.dart';
 
-// class FilterItems extends StatefulWidget {
-//   const FilterItems({
-//     super.key,
-//     required this.filterName,
-//     required this.filterSubtitle,
-//     required this.whatIsFree,
-//   });
-//   final String filterName;
-//   final String filterSubtitle;
-//   final bool whatIsFree;
-
-//   @override
-//   State<FilterItems> createState() => _FilterItemsState();
-// }
-
-// class _FilterItemsState extends State<FilterItems> {
-//   late bool whatIsFree2;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     whatIsFree2 = widget.whatIsFree;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SwitchListTile(
-//         value: whatIsFree2,
-//         title: Text(widget.filterName),
-//         subtitle: Text(widget.filterSubtitle),
-//         onChanged: (isChecked) {
-//           setState(() {
-//             whatIsFree2 = isChecked;
-//           });
-//           widget.onChangedCallback(isChecked);
-//         });
-//   }
-// }
-
 class FilterItems extends ConsumerWidget {
   const FilterItems({
     super.key,
